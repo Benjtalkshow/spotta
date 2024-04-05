@@ -1,12 +1,27 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customBg: "#FAFCFD",
+        customBlue: "#5378F6",
+        customGray: "#F3F7FE",
+        customGreen: "#00A96E",
+      },
+    },
   },
-  plugins: [],
-}
-
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: false,
+    darkTheme: "white",
+    base: true,
+    styled: true,
+    utils: true,
+    prefix: "",
+    logs: true,
+    themeRoot: ":root",
+  },
+};
