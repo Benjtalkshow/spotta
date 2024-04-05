@@ -11,6 +11,11 @@ export default {
         customGray: "#F3F7FE",
         customGreen: "#00A96E",
       },
+      screens: {
+        'miniDesktop': '1300px', 
+        'superMedium': '975px', 
+        // 'Desktop': '1300px', 
+      },
     },
   },
   plugins: [require("daisyui")],

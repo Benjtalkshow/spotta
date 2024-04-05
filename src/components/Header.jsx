@@ -1,11 +1,13 @@
+// Header.js
 import React, { useState } from "react";
 import logo from "../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <div className="w-full py-5 px-5 md:px-20 absolute bg-customBg">
+    <div className="w-full py-5 px-5 md:px-20  bg-customBg ">
       <header className="flex items-center justify-between">
         {/* logo */}
         <div className="logo flex gap-2 items-center">
