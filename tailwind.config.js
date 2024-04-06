@@ -11,10 +11,12 @@ export default {
         customBg2: "#F5F5F5",
         customGray: "#F3F7FE",
         customGreen: "#00A96E",
+        reactionColor:"#0D2159",
       },
       screens: {
         'miniDesktop': '1300px', 
         'superMedium': '975px', 
+        'miniScreen' : '355px'
         // 'Desktop': '1300px', 
       },
     },

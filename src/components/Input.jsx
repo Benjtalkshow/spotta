@@ -12,7 +12,7 @@ const Input = ({
   className = "shadow input bg-customGray appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pr-10",
 }) => {
   return (
-    <div className="relative mb-6">
+    <div className="relative">
       <input
         type={showPassword ? "text" : type}
         id={id}
