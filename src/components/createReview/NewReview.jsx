@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { breadcrumbData } from "../../data";
 import ShortButton from "../ShortButton";
+import rate from "../../assets/images/rate.svg";
 
 const NewReview = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,10 +45,11 @@ const NewReview = () => {
           />
         )}
       </div>
+      {/* dropdown */}
       {isOpen && (
         <div className="absolute w-full left-0 px-5">
           <div
-            className={`overflow-y-scroll h-[200px] md:h-fit md:overflow-y-hidden grid grid-cols-1 md:grid-cols-2 min-[1230px]:grid-cols-3 min-[1400px]:grid-cols-5 gap-3 border p-2 bg-customInputBg `}
+            className={`overflow-y-scroll h-[250px] md:h-fit md:overflow-y-hidden grid grid-cols-1 md:grid-cols-2 min-[1230px]:grid-cols-3 min-[1400px]:grid-cols-5 gap-3 border p-2 bg-customInputBg `}
           >
             {breadcrumbData.map((data, index) => (
               <div
@@ -62,10 +64,31 @@ const NewReview = () => {
         </div>
       )}
 
+      {/* Rate location */}
+      <div className="space-y-3 my-2">
+        <h1 className="font-semibold">Rate Location</h1>
+        <div className="flex">
+          {[1, 2, 3, 4, 5].map((item, index) => (
+            <img
+              src={rate}
+              alt="rating"
+              className="cursor-pointer"
+              onClick={() => alert(index + 1)}
+              key={index}
+              id={item + index + 1}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* textarea */}
+      <label htmlFor="review" className="label">
+        Write Review
+      </label>
       <textarea
         placeholder="Write your review"
-        className="textarea resize-none mt-5 focus:border-0 border border-gray-300 focus:outline-customBlue focus:ring-0 focus:outline-2 textarea-bordered textarea-lg w-full h-40"
+        className="textarea resize-none  focus:border-0 border border-gray-300 focus:outline-customBlue focus:ring-0 focus:outline-2 textarea-bordered textarea-lg w-full h-40"
+        id="review"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       ></textarea>

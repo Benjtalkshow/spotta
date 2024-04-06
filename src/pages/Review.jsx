@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Header, ReviewGrid, ReviewHeader } from '../components';
+import { Alert, Header, ReviewGrid, ReviewHeader } from '../components';
+
 
 const Review = () => {
   const [searchValue, setSearchValue] = useState("Bonny and Clyde Street, Ajao Estate, Lagos")

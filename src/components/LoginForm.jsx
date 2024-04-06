@@ -62,7 +62,7 @@ const LoginPage = () => {
         {/* links */}
         <div className="w-full text-center mt-5 space-y-3 text-sm">
           <Link
-            to="/"
+            to="#"
             className={`${tailwindEffect} underline underline-offset-4 hover:text-blue-700`}
           >
             Forgot password?
@@ -70,7 +70,7 @@ const LoginPage = () => {
           <br />
           <p className="whitespace-nowrap">Don't have an account? {" "}
           <Link
-            to="/"
+            to="/register"
             className={`${tailwindEffect} font-semibold underline underline-offset-4 text-customBlue hover:text-blue-700`}
           >
             Sign Up

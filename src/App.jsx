@@ -1,5 +1,5 @@
 import React from 'react'
-import { CreateReview, Home, Login, Review } from './pages'
+import { CreateReview, Home, Login, Register, Review } from './pages'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 const App = () => {
@@ -8,6 +8,7 @@ const App = () => {
       <Router >
         <Routes>
           <Route path='/' element={<Home />}/>
+          <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/review' element={<Review />}/>
           <Route path='/create-review' element={<CreateReview />}/>

@@ -16,6 +16,10 @@ export { default as ImageGrid } from "./review/ImageGrid";
 export { default as ReviewCard } from "./review/ReviewCard";
 export { default as ReviewSection } from "./review/ReviewSection";
 export { default as NewReview } from "./createReview/NewReview";
+export { default as Alert } from "./Alert";
+export { default as RegisterForm } from "./RegisterForm";
+
+
 
 
 
