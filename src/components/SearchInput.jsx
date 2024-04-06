@@ -54,7 +54,7 @@ const SearchInput = ({
         )}
       </div>
       {isFocused && suggestions.length > 0 && (
-        <ul className="absolute top-full left-0 right-0 bg-[#E5F0FD] z-10 border border-gray-300 rounded-lg shadow-md py-2">
+        <ul className="absolute panel top-full left-0 right-0 bg-[#E5F0FD] z-10 border border-gray-300 rounded-lg shadow-md py-2">
           {suggestions.map((suggestion, index) => (
             <li
               key={index}

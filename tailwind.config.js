@@ -12,6 +12,8 @@ export default {
         customGray: "#F3F7FE",
         customGreen: "#00A96E",
         reactionColor:"#0D2159",
+        customDarkBlue:"#213449",
+        customInputBg:"#E5F0FD",
       },
       screens: {
         'miniDesktop': '1300px', 

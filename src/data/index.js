@@ -2,7 +2,6 @@ import profile from "../assets/images/profile.svg";
 
 
 export const breadcrumbData = [
-    { text: "Shools" },
     { text: "Hospitals" },
     { text: "Resort Park" },
     { text: "Shoping Malls" },
@@ -12,9 +11,9 @@ export const breadcrumbData = [
     { text: "Public Wifi" },
     { text: "Parking Lot" },
     { text: "Security" },
-    { text: "Public Transport" },
     { text: "Bus Station" },
-    { text: "Quiet" }
+    { text: "Quiet" },
+    { text: "Shools" },
   ];
 
   export const reviewData = [
