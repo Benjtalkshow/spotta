@@ -8,6 +8,7 @@ export default {
       colors: {
         customBg: "#FAFCFD",
         customBlue: "#5378F6",
+        customBg2: "#F5F5F5",
         customGray: "#F3F7FE",
         customGreen: "#00A96E",
       },

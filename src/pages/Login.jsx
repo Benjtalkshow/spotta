@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Header, LoginForm } from '../components';
 
-const Login = () => {
+function App() {
   return (
-    <div>Login</div>
-  )
+    <div className='bg-customBg2'>
+      <Header />
+      <LoginForm />
+    </div>
+  );
 }
 
-export default Login
+export default App;

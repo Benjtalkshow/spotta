@@ -29,7 +29,7 @@ const Hero = () => {
 
         {/* button */}
         <button
-          className={`${tailwindEffect} border-0 btn mt-10 text-white bg-customBlue px-10 hover:bg-blue-400`}
+          className={`${tailwindEffect} border-0 btn mt-10 text-white bg-customBlue px-10 hover:bg-blue-700`}
         >
           SEARCH
         </button>
