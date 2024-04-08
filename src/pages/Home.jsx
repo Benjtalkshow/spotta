@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Header, HeroSection, PageLoader } from "../components";
+import { Header,  PageLoader } from "../components";
+import { HeroSection } from "../components/hero/HeroSection";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);

@@ -1,5 +1,4 @@
 export { default as Header } from "./Header";
-export { default as HeroSection } from "./hero/HeroSection";
 export { default as Hero } from "./hero/Hero";
 export { default as HeroBg } from "./hero/HeroBg";
 export { default as LoginForm } from "./LoginForm";
