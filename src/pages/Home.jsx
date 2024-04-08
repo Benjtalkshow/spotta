@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
-import { Header, HeroSection } from '../components'
+import React, { useEffect, useState } from "react";
+import { Header, HeroSection, PageLoader } from "../components";
 
 const Home = () => {
-  return (
-    <div className='w-full h-full bg-customBg2 relative'>
-        <Header/>
-        <HeroSection />
-    </div>
-  )
-}
+  const [loading, setLoading] = useState(true);
 
-export default Home
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  return (
+    <div className="w-full h-full bg-customBg2 relative">
+      {!loading ? (
+        <>
+          <Header />
+          <HeroSection />
+        </>
+      ) : (
+        <>
+          <PageLoader />
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Home;

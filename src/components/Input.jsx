@@ -17,7 +17,7 @@ const Input = ({
   return (
     <div className="relative">
       <input
-        type={showPassword && !Icon ? "text" : type}
+        type={showPassword  ? "text" : type}
         id={id}
         className={`${className} ${
           error ? "border-red-500 focus:border-red-500" : ""
@@ -41,7 +41,7 @@ const Input = ({
             <></>
           ) : (
             <button
-              className="focus:outline-none"
+              className="focus:outline-none bg-red-600"
               onClick={() => setShowPassword(!showPassword)}
               disabled={disable}
             >

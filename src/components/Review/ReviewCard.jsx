@@ -8,6 +8,7 @@ import ShortButton from "../ShortButton";
 import { tailwindEffect } from "../../data/constants";
 
 const ReviewCard = ({
+  id,
   profile,
   name,
   rating,
@@ -31,16 +32,29 @@ const ReviewCard = ({
     setComment(false);
   };
 
+  const formatName = (name) => {
+    const words = name.split(" ");
+    if (words.length > 1) {
+      return words.map((word) => word.charAt(0).toUpperCase()).join("");
+    } else {
+      return name.slice(0, 2).toUpperCase();
+    }
+  };
+
   return (
-    <div className="card rounded-none w-full border-b-2 border-b-gray-300">
+    <div
+      className="card rounded-none w-full border-b-2 border-b-gray-300"
+      id={id}
+    >
       {/* profile && rating */}
       <div className="w-full flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img
-            src={profile || profileImage}
-            alt="profile"
-            className="w-12 h-12 rounded-full"
-          />
+
+          <div className="avatar placeholder h-12 w-12">
+            <div className="bg-neutral text-neutral-content rounded-full w-12">
+              <span>{formatName(name) || 'Nil'}</span>
+            </div>
+          </div>
           <h2 className="font-bold">{name || `No user`}</h2>
           <h2 className="text-gray-400">{month || `No month`}</h2>
         </div>

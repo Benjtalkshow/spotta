@@ -1,11 +1,11 @@
 // Header.js
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../assets/images/logo.svg";
 import { Link } from "react-router-dom";
 import { SearchInput } from "./index";
+import Profile from "./Profile";
 
 const Header = ({ showInput = false, searchValue, setSearchValue }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [suggestions, setSuggestions] = useState([
     "Apple",
     "Banana",
@@ -43,8 +43,11 @@ const Header = ({ showInput = false, searchValue, setSearchValue }) => {
           )}
         </div>
         {/* link or profile */}
-        <div className="font-bold text-[#5378F6]">
+        {/* <div className="font-bold text-[#5378F6]">
           {isLoggedIn ? <h1>USER</h1> : <Link to="/login">LOGIN</Link>}
+        </div> */}
+        <div>
+          <Profile />
         </div>
       </header>
       {showInput && (

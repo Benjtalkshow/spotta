@@ -19,6 +19,12 @@ export { default as NewReview } from "./createReview/NewReview";
 export { default as Alert } from "./Alert";
 export { default as RegisterForm } from "./RegisterForm";
 
+// Loaders
+export { default as PageLoader } from "./Loaders/PageLoader";
+export { default as LittleLoader } from "./Loaders/LittleLoader";
+
+
+
 
 
 

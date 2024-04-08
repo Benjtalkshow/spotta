@@ -1,21 +1,45 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
-import { reviewData } from "../../data";
+// import { reviewData } from "../../data";
+import { FirebaseAuthContext } from "../../context/AuthContext";
+import { formatDistanceToNow } from "date-fns";
 
 const ReviewSection = () => {
+  const [reviews, setReviews] = useState([]);
+  const { fetchAllReviews } = useContext(FirebaseAuthContext);
+
+  const createdDate = (createdAt) => {
+    const createDate = createdAt.toDate();
+    const timeAgo = formatDistanceToNow(createDate, { addSuffix: true });
+    return timeAgo.replace("about ", "");
+  };
+  useEffect(() => {
+    fetchReviews();
+  }, []);
+
+  const fetchReviews = async () => {
+    try {
+      const reviewsData = await fetchAllReviews();
+      setReviews(reviewsData);
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+    }
+  };
+
   return (
     <div className="w-full md:w-[60%] grid grid-cols-1 gap-3 mb-10">
-      {reviewData.map((data, index) => (
+      {reviews.map((data) => (
         <ReviewCard
-          key={index}
-          profile={data.profileImage}
+          key={data.id}
+          id={data.id +" "+ data.userId}
+          profile={null}
           name={data.name}
           rating={data.rating}
-          month={data.date}
+          month={createdDate(data.createdAt)}
           description={data.description}
-          likes={data.likes}
-          dislikes={data.dislikes}
-          comments={data.comments}
+          likes={`200`}
+          dislikes={`14`}
+          comments={`12`}
         />
       ))}
     </div>

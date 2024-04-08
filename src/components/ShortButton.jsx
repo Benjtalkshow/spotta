@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ShortButton = ({
+  type,
   label,
   onClick,
   iconColor,
@@ -15,6 +16,7 @@ const ShortButton = ({
       className={`${className} ${tailwindEffect}`}
       onClick={onClick}
       disabled={disabled}
+      type={type}
     >
       {Icon && <Icon color={iconColor} className="mr-2" strokeWidth={strokeWidth} />}
       {label}
