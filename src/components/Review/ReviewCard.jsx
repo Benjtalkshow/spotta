@@ -6,6 +6,7 @@ import dislikeIcon from "../../assets/images/dislike.svg";
 import commentIcon from "../../assets/images/comment.svg";
 import ShortButton from "../ShortButton";
 import { tailwindEffect } from "../../data/constants";
+import { toast } from "react-hot-toast"
 
 const ReviewCard = ({
   id,
@@ -30,6 +31,7 @@ const ReviewCard = ({
 
   const handleSubmitComment = () => {
     setComment(false);
+    toast.error("Submitting comment not functional")
   };
 
   const formatName = (name) => {
@@ -43,7 +45,7 @@ const ReviewCard = ({
 
   return (
     <div
-      className="card rounded-none w-full border-b-2 border-b-gray-300"
+      className="card rounded-none w-full border-b-2 border-b-gray-300 h-fit"
       id={id}
     >
       {/* profile && rating */}

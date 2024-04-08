@@ -18,12 +18,14 @@ const App = () => {
         />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Home />} />
           <Route
             path="/register"
             element={<PublicRoute element={Register} />}
           />
           <Route path="/login" element={<PublicRoute element={Login} />} />
           <Route path="/review" element={<ProtectedRoute element={Review} />} />
+          {/* <Route path="/review" element={<Review />} /> */}
           <Route
             path="/create-review"
             element={<ProtectedRoute element={CreateReview} />}

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
-// import { reviewData } from "../../data";
 import { FirebaseAuthContext } from "../../context/AuthContext";
 import { formatDistanceToNow } from "date-fns";
 

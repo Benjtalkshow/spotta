@@ -97,7 +97,7 @@ const NewReview = () => {
             className={`overflow-y-scroll h-[250px] md:h-fit md:overflow-y-hidden grid grid-cols-1 md:grid-cols-2 min-[1230px]:grid-cols-3 min-[1400px]:grid-cols-5 gap-3 border p-2 bg-customInputBg `}
           >
             {breadcrumbData.map((data, index) => (
-              <div key={index}>
+              <div key={index} className="space-x-2">
                 <input
                   type="checkbox"
                   value={data.text}

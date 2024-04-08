@@ -43,9 +43,6 @@ const Header = ({ showInput = false, searchValue, setSearchValue }) => {
           )}
         </div>
         {/* link or profile */}
-        {/* <div className="font-bold text-[#5378F6]">
-          {isLoggedIn ? <h1>USER</h1> : <Link to="/login">LOGIN</Link>}
-        </div> */}
         <div>
           <Profile />
         </div>

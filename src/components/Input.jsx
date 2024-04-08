@@ -14,39 +14,38 @@ const Input = ({
   icon: Icon = null,
   error = "",
 }) => {
+  const handleIconClick = (e) => {
+    e.stopPropagation();
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="relative">
       <input
-        type={showPassword  ? "text" : type}
+        type={showPassword ? "text" : type}
         id={id}
-        className={`${className} ${
-          error ? "border-red-500 focus:border-red-500" : ""
-        }`}
+        className={`${className} ${error ? "border-red-500 focus:border-red-500" : ""}`}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
       />
       {(type === "password" || Icon) && (
-        <div className="absolute inset-y-0 right-0 bottom-5 pr-3 flex items-center">
+        <div className="absolute inset-y-0 right-0 top-4 bottom-5 pr-3 flex items-center">
           {Icon && (
-            <button
-              className="focus:outline-none"
-              onClick={() => setShowPassword(!showPassword)}
-              disabled={disable}
-            >
+            <button className="focus:outline-none" onClick={handleIconClick} disabled={disable}>
               <Icon color="gray" />
             </button>
           )}
           {type === "password" && Icon ? (
             <></>
           ) : (
-            <button
-              className="focus:outline-none bg-red-600"
-              onClick={() => setShowPassword(!showPassword)}
+            <span
+              className="focus:outline-none cursor-pointer"
+              onClick={handleIconClick}
               disabled={disable}
             >
               {showPassword ? <Eye color="gray" /> : <EyeOff color="gray" />}
-            </button>
+            </span>
           )}
         </div>
       )}

@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import NoReview from "./NoReview";
 import ImageGrid from "./ImageGrid";
 import { tailwindEffect } from "../../data/constants";
 import ReviewSection from "./ReviewSection";
+import { FirebaseAuthContext } from "../../context/AuthContext";
 
-const ReviewGrid = ({ review = !false }) => {
+
+const ReviewGrid = () => {
+  const { fetchAllReviews } = useContext(FirebaseAuthContext)
+  const [review, setReviews] = useState([])
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
+
+  const fetchReviews = async () => {
+    try {
+      const reviewsData = await fetchAllReviews();
+      setReviews(reviewsData);
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+    }
+  };
   return (
     <div className="w-full h-full py-5">
-      {review ? (
+      {review.length > 0 ? (
         <div className={`w-full ${tailwindEffect} flex flex-col-reverse md:flex-row gap-10 justify-between px-5 md:px-20`}>
           {/* grid */}
           <ReviewSection />
