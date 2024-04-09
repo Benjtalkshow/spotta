@@ -38,13 +38,13 @@ Features
 Usage
 -----
 
-1.  ```clone cd spotta-ng-review-project```
+1.  ```clone cd spotta```
     
 2.  ```npm install```
     
 3.  ```npm start```
     
-4.  Access the application in your web browser at **http://localhost:3000**.
+4.  Access the application in your web browser at **http://localhost:5173**.
     
 
 Dependencies
