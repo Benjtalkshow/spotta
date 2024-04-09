@@ -35,7 +35,7 @@ const Profile = () => {
 
   return (
     <div className="flex items-center gap-3">
-      <div className="font-bold text-[#5378F6] flex space-x-2">
+      <div className="font-bold text-xs md:text-lg text-[#5378F6] flex space-x-2">
         <ShowOnLogin>
           <h1 className="cursor-pointer" onClick={handleLogout}>
             LOGOUT
