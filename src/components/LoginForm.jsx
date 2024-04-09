@@ -34,8 +34,8 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center min-h-screen px-3">
-      <div className="sm:bg-customBg rounded-lg sm:shadow-md sm:p-8 w-full sm:max-w-xs">
+    <div className="flex justify-center items-center h-full px-3 bg-customBg2">
+      <div className="sm:bg-customBg rounded-lg sm:shadow-md sm:p-8 w-full sm:max-w-xs my-20">
         <h1 className="text-2xl font-bold mb-6 text-center">Log In</h1>
 
         {/* form */}

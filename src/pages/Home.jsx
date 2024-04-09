@@ -11,7 +11,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="w-full h-fit md:h-full bg-customBg2 relative">
+    <div className="w-full h-screen md:h-full bg-customBg2 relative">
       {!loading ? (
         <>
           <Header />
