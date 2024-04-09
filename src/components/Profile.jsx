@@ -3,25 +3,24 @@ import { FirebaseAuthContext } from "../context/AuthContext";
 import ShowOnLogin, { ShowOnLogout } from "../routes/PrivateLink";
 import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
+import LittleLoader from "./Loaders/LittleLoader";
 
 const Profile = () => {
-  const { user, logout } = useContext(FirebaseAuthContext);
+  const { user, logout, loading, isLoggedIn } = useContext(FirebaseAuthContext);
   const [fullName, setFullName] = useState(user ? user.name : "Anonymous User");
   const [initials, setInitials] = useState("");
   const navigate = useNavigate();
-  const loaction = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     function extractInitials(input) {
-      const words = input.split(" ");
-      let initials = "";
-      words.forEach((word) => {
-        const firstLetter = word.charAt(0).toUpperCase();
-        initials += firstLetter;
-      });
-      return initials;
+      return input
+        .split(" ")
+        .map((word) => word.charAt(0).toUpperCase())
+        .join("");
     }
-    if (fullName) {
+
+    if (fullName && fullName.trim() !== "") {
       setInitials(extractInitials(fullName));
     }
   }, [fullName]);
@@ -32,6 +31,10 @@ const Profile = () => {
   };
 
   const isReviewRoute = location.pathname.startsWith("/review");
+
+  if (loading) {
+    return <LittleLoader color='blue' />;
+  }
 
   return (
     <div className="flex items-center gap-3">
