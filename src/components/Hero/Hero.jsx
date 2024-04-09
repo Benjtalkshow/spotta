@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { tailwindEffect } from "../../data/constants";
 import { SearchInput } from "../index";
+import { toast } from "react-hot-toast";
+import  { useNavigate } from "react-router-dom";
+import { FirebaseAuthContext } from "../../context/AuthContext";
+
 
 const Hero = () => {
   const [value, setValue] = useState("");
-  const [suggestions, setSuggestions] = useState(['Apple', 'Banana', 'Orange', 'Pear']);
+  const [suggestions, setSuggestions] = useState(['Airport', 'Security', 'Night Life', 'Resort Park']);
+  const { isLoggedIn } = useContext(FirebaseAuthContext);
+  const navigate = useNavigate()
 
-
+const handleNavigate = () => {
+if(isLoggedIn && value.trim()) {
+navigate(`/review/${value}`)
+toast.error("Search not yet implemented")
+} else {
+  toast.error("search is empty or Not authenticated")
+}
+}
 
   return (
     <section className="flex justify-center mt-0 items-center w-full superMedium:w-fit">
@@ -37,6 +50,7 @@ const Hero = () => {
         {/* button */}
         <button
           className={`${tailwindEffect} border-0 btn mt-10 text-white bg-customBlue px-10 hover:bg-blue-700`}
+          onClick={handleNavigate}
         >
           SEARCH
         </button>

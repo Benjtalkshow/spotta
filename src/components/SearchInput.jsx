@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Search, X } from 'lucide-react';
+import React, { useState } from "react";
+import { Search, X } from "lucide-react";
 
 const SearchInput = ({
-  type = 'text',
+  type = "text",
   id,
   placeholder,
   iconColor,
@@ -10,20 +10,19 @@ const SearchInput = ({
   onChange,
   width,
   suggestions = [],
-  className = 'w-full border-2 flex items-center bg-customGray rounded-lg px-2 focus-within:border-customBlue',
-  tailwindEffect = '',
+  className = "w-full border-2 flex items-center bg-customGray rounded-lg px-2 focus-within:border-customBlue",
+  tailwindEffect = "",
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleClear = () => {
-    onChange('');
+    onChange("");
   };
 
- 
   const handleSelectSuggestion = (suggestion) => {
-    onChange(suggestion)
-    setIsFocused(false)
-  }
+    onChange(suggestion);
+    setIsFocused(false);
+  };
 
   const handleBlur = () => {
     setTimeout(() => {
@@ -32,10 +31,13 @@ const SearchInput = ({
   };
 
   return (
-    <div className="relative bg-transparent sm:bg-customGray" style={{width: `${width}`}}>
+    <div
+      className="relative bg-transparent sm:bg-customGray"
+      style={{ width: `${width}` }}
+    >
       <div
         className={`bg-[#E8F0FE] ${className} ${tailwindEffect} ${
-          isFocused ? 'border-customBlue' : ''
+          isFocused ? "border-customBlue" : ""
         }`}
       >
         <Search size={20} color={iconColor} className="flex-shrink-0" />
@@ -44,17 +46,22 @@ const SearchInput = ({
           id={id}
           placeholder={placeholder}
           value={value}
-          onChange={(e) => onChange(e.target.value)} 
+          onChange={(e) => onChange(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={handleBlur}
           className="input border-none bg-inherit rounded-none focus:outline-none w-full"
         />
         {value && isFocused && (
-          <X size={20} className="flex-shrink-0 cursor-pointer" onClick={handleClear} />
+          <X
+            size={20}
+            className="flex-shrink-0 cursor-pointer"
+            onClick={handleClear}
+          />
         )}
       </div>
       {isFocused && suggestions.length > 0 && (
         <ul className="absolute panel top-full left-0 right-0 bg-[#E5F0FD] z-10 border border-gray-300 rounded-lg shadow-md py-2">
+          <span className="text-xs font-semibold px-4">Suggestions</span>
           {suggestions.map((suggestion, index) => (
             <li
               key={index}

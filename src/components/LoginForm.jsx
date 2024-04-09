@@ -13,15 +13,19 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true); 
     try {
       await loginWithEmailAndPassword(email, password);
-      navigate("/review");
+      navigate(`/`);
     } catch (err) {
       setError(err.message);
       console.log(err.message);
+    } finally {
+      setIsLoading(false); 
     }
   };
 
@@ -60,11 +64,11 @@ const LoginPage = () => {
           <button
             type="submit"
             className={`${tailwindEffect} ${
-              loading ? "bg-gray-300" : "bg-customBlue hover:bg-blue-700"
+              isLoading ? "bg-gray-300" : "bg-customBlue hover:bg-blue-700"
             } flex justify-center items-center text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline w-full`}
-            disabled={loading}
+            disabled={isLoading}
           >
-            {loading ? <LittleLoader /> : "LOG IN"}
+            {isLoading ? <LittleLoader /> : "LOG IN"}
           </button>
 
           {/* error message */}

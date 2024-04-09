@@ -7,10 +7,10 @@ import Profile from "./Profile";
 
 const Header = ({ showInput = false, searchValue, setSearchValue }) => {
   const [suggestions, setSuggestions] = useState([
-    "Apple",
-    "Banana",
-    "Orange",
-    "Pear",
+    "Security",
+    "Bus Stations",
+    "Schools",
+    "Resort Parks",
   ]);
 
   return (

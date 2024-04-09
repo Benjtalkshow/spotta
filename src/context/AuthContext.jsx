@@ -62,7 +62,7 @@ const fetchAllReviews = async () => {
       }
       setLoading(false);
     });
-
+  
     return unsubscribe;
   }, []);
 
@@ -104,7 +104,6 @@ const fetchAllReviews = async () => {
 
   // Login with email and password
   const loginWithEmailAndPassword = async (email, password) => {
-    setIsLoggedIn(false);
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -113,7 +112,6 @@ const fetchAllReviews = async () => {
       );
       const user = userCredential.user;
       toast.success("Logged In Successfully");
-      setIsLoggedIn(true); // Update isLoggedIn state
     } catch (error) {
       console.error(error);
       toast.error(error.message);
@@ -121,7 +119,6 @@ const fetchAllReviews = async () => {
     }
   };
 
-  //Add review
   //Add review
   const addReview = async (rating, amenity, description, name) => {
     try {

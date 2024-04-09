@@ -18,8 +18,9 @@ const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const [disable, setDisable] = useState(true)
+  const [disable, setDisable] = useState(true);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setDisable(
@@ -29,6 +30,8 @@ const RegisterForm = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+
     // Validate firstName, lastName, email, and password
     if (
       !firstName.trim() ||
@@ -72,6 +75,8 @@ const RegisterForm = () => {
       navigate("/login");
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -138,11 +143,13 @@ const RegisterForm = () => {
           <button
             type="submit"
             className={`flex justify-center items-center  ${tailwindEffect} ${
-              loading || disable ? "bg-gray-300" : "bg-customBlue hover:bg-blue-700"
+              isLoading || disable
+                ? "bg-gray-300"
+                : "bg-customBlue hover:bg-blue-700"
             } text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline w-full`}
-            disabled={disable || loading ? true : false}
+            disabled={disable || isLoading ? true : false}
           >
-            {loading ? <LittleLoader /> : "SIGN UP"}
+            {isLoading ? <LittleLoader /> : "SIGN UP"}
           </button>
         </form>
         {/* demarcation */}

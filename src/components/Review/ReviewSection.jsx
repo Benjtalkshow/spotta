@@ -32,6 +32,7 @@ const ReviewSection = () => {
           key={data.id}
           id={data.id +" "+ data.userId}
           profile={null}
+          amenity={data.amenity}
           name={data.name}
           rating={data.rating}
           month={createdDate(data.createdAt)}

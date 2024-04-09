@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { breadcrumbData } from "../../data";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import styles from "../../assets/css/hideScrollbar.module.css";
+import { toast } from "react-hot-toast";
 
 const BreadCrumb = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -28,6 +29,7 @@ const BreadCrumb = () => {
     container.scrollLeft += 200;
   };
 
+
   return (
     <div className="px-5 md:px-20 mt-5 mb-5 flex items-center">
       <div className="hidden md:block">
@@ -47,6 +49,7 @@ const BreadCrumb = () => {
         {breadcrumbData.map((item, index) => (
           <div
             key={index}
+            onClick={() => toast.error(`${item.text} not sortable`)}
             className="badge cursor-pointer border-[1px] border-gray-400 bg-white rounded py-3 px-5 mr-4 flex-shrink-0"
           >
             {item.text}

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import React from "react";
+import { Eye, EyeOff, LockKeyhole } from "lucide-react";
 
 const Input = ({
   type = "text",
@@ -16,6 +16,9 @@ const Input = ({
 }) => {
   const handleIconClick = (e) => {
     e.stopPropagation();
+    if (Icon === LockKeyhole) {
+      e.preventDefault(); 
+    }
     setShowPassword(!showPassword);
   };
 
